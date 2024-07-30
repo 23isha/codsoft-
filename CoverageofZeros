@@ -1,0 +1,24 @@
+class Solution {
+    
+    public int findCoverage(int[][] matrix) {
+        int c=0;
+        int n=matrix.length;
+        int m=matrix[0].length;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(matrix[i][j]==0){
+                    int d=i+1;
+                    int u=i-1;
+                    int r=j+1;
+                    int l=j-1;
+                    if(d<n && matrix[d][j]==1)  c++;
+                    if(u>=0 && matrix[u][j]==1) c++;
+                    if(r<m && matrix[i][r]==1) c++;
+                    if(l>=0 && matrix[i][l]==1) c++;
+                }
+            }
+        }
+        return c;
+       
+    }
+}
